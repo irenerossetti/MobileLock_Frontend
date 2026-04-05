@@ -1,5 +1,19 @@
 # React + Vite
 
+## Environment variables
+
+Create a local `.env` file from `.env.example` and set the API base URL used by the frontend.
+
+```bash
+VITE_API_BASE_URL=https://tu-backend.com/api
+```
+
+Use the same variable in Netlify site settings for the production deployment.
+
+## Netlify
+
+This project includes a `netlify.toml` file with the build command, publish directory, and SPA redirect so React Router works on refresh.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
