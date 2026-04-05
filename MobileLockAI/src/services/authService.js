@@ -1,17 +1,16 @@
 import apiClient from "./apiClient"
-const API = "http://127.0.0.1:8000/api/users/auth"
-
-const PROFILE_ENDPOINTS = ["/users/users/me/", "/users/me/"]
+const AUTH_BASE_PATH = "/users/auth"
+const PROFILE_ENDPOINTS = ["/users/me/", "/users/users/me/"]
 
 export const register = async (userData) => {
 
-  const response = await apiClient.post(`${API}/register/`,userData)
+  const response = await apiClient.post(`${AUTH_BASE_PATH}/register/`, userData)
 
   return response.data
 }
 
 export const login = async (email, password) => {
-  const response = await apiClient.post(`${API}/login/`, {
+  const response = await apiClient.post(`${AUTH_BASE_PATH}/login/`, {
     correo_electronico: email,
     password: password
   })
@@ -26,7 +25,7 @@ export const logout = async () => {
     return { message: "Logout local" }
   }
 
-  const response = await apiClient.post(`${API}/logout/`, { refresh })
+  const response = await apiClient.post(`${AUTH_BASE_PATH}/logout/`, { refresh })
   return response.data
 }
 
